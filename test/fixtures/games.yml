@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  steps: 1
+  winner: MyText
+
+two:
+  steps: 1
+  winner: MyText

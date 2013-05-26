@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <style>
+      table, th, td{
+        text-align: center;
+        border: 2px solid black;
+        border-collapse: collapse;
+        margin: 0 auto;
+      }
+
+
+      h2{
+        color: #ccaa00;
+        font-family: Bookman Old Style;
+        font-size: 1.5em;
+        text-align: center;
+      }
+      body{
+        background-color: #eecc55;
+      }
+      div{
+        width: 60%;
+        margin: 0 auto;
+        padding: 2% 7%;
+        background-color: #feffee;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <p id="notice"><%= notice %></p>
+
+      <p>
+        <b>Количество ходов:</b>
+        <%= @game.steps %>
+      </p>
+
+      <p>
+        <b>Победитель:</b>
+        <%if @game.winner=="Browser"%>
+              Браузер
+        <% else %>
+              Сервер
+        <% end %>
+      </p>
+
+      <h2>Ходы</h2>
+      <table>
+        <tr>
+          <th>Игрок</th>
+          <th>Осталось палочек до хода</th>
+          <th>Ход сделан</th>
+          <th>Игрок взял</th>
+        </tr>
+      	<% @game.pitches.each do |pitch| %>
+      	<tr>
+          <td><span> <%= pitch.player %></span></td>
+          <td><%= pitch.sticks %></td>
+          <td><%= pitch.created_at %></td>
+      	  <td> <%= pitch.take%> </td>
+         </tr> 
+      	<% end %>
+        <tfoot>
+          <tr>
+            <td colspan="4">Игра окончена</td>
+          </tr>
+        </tfoot>
+      </table>
+
+
+      <%= link_to 'Все игры', games_path %>
+    </div>
+  </body>
+</html>

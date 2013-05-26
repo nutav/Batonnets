@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <style>
+      table, th, td{
+        text-align: center;
+        border: 2px solid black;
+        border-collapse: collapse;
+        margin: 0 auto;
+      }
+
+      h1{
+        color: #ccaa00;
+        font-family: Bookman Old Style;
+        text-align: center;
+        margin: 30px 0;
+        font-size: 2em;
+      }
+      body{
+        background-color: #eecc55;
+      }
+      div{
+        width: 60%;
+        margin: 0 auto;
+        padding: 2% 7%;
+        background-color: #feffee;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <h1>ИГРЫ</h1>
+
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Количество ходов</th>
+          <th>Победитель</th>
+          <th>Игра сыграна</th>
+          <th></th>
+          <th></th>
+        </tr>
+
+      <% @games.each do |game| %>
+        <tr>
+          <td><%= game.id %></td>
+          <td><%= game.steps %></td>
+          <td><%if game.winner=="Browser"%>
+                Браузер
+              <% else %>
+                Сервер
+              <% end %>
+          </td>
+          <td><%= game.created_at %></td>
+          <td><%= link_to 'Show', game %></td>
+          <td><%= link_to 'Destroy', game, confirm: 'Are you sure?', method: :delete %></td>
+        </tr>
+      <% end %>
+      </table>
+
+      <br />
+
+      <a href="/home/index">Новая игра</a>
+    </div>
+  </body>
+</html>

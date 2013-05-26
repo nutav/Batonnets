@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  player: MyText
+  sticks: MyText
+  take: MyText
+  game_id: 1
+
+two:
+  player: MyText
+  sticks: MyText
+  take: MyText
+  game_id: 1
